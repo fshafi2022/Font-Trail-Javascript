@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+       
+    <style>
+       .trail{
+        width: 100px;
+        height:100;
+        border-radius: 50%;
+        border: 1px solid #c70081;
+        background-color: #c70081;
+        position: fixed;
+        animation: comes 1s linear forwards;
+       }
+       @keyframes comes {
+        0%
+        {
+         transform:scale(0)
+        }
+        10%
+        {
+         transform:scale(1) translateY(0px);
+         opacity: 1;
+        }
+        100%
+        {
+         transform:scale(0) translateY(50px);
+         opacity: 0;
+        }
+        
+       }
+    </style>
+</head>
+<body>
+    <h1>Enter your name</h1>
+        
+   <script>
+    var body = document.body
+    document.addEventListener("mousemove", e =>{
+       var elem = document.createElement("div");
+       elem.setAttribute('class','trail');
+       elem.setAttribute('style', `left: ${e.clientX - 10}px; top: ${e.clientY - 10}px;`)
+       elem.onanimationend=()=>{
+        elem.remove()
+    }
+    body.insertAdjacentHTML('beforeend', elem)
+        });
+   
+   </script> 
+</body>
+</html>
